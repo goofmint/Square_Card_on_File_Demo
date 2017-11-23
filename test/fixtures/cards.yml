@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  last4: MyString
+  exp_year: MyString
+  exp_month: MyString
+  brand: MyString
+  user_id: 1
+
+two:
+  last4: MyString
+  exp_year: MyString
+  exp_month: MyString
+  brand: MyString
+  user_id: 1

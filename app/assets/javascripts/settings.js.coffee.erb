@@ -1,0 +1,48 @@
+# Set the application ID
+applicationId = '<%= load_config['application_id'] %>'
+# Set the location ID
+locationId = '<%= load_config['location_id'] %>'
+# Create and initialize a payment form object
+paymentForm = new SqPaymentForm(
+  applicationId: applicationId
+  locationId: locationId
+  inputClass: 'form-control'
+  inputStyles: [ { fontSize: '.9em' } ]
+  cardNumber:
+    elementId: 'sq-card-number'
+    placeholder: '•••• •••• •••• ••••'
+  cvv:
+    elementId: 'sq-cvv'
+    placeholder: 'CVV'
+  expirationDate:
+    elementId: 'sq-expiration-date'
+    placeholder: 'MM/YY'
+  postalCode: elementId: 'sq-postal-code'
+  callbacks:
+    methodsSupported: (methods) ->
+    createPaymentRequest: ->
+      paymentRequestJson = undefined
+      paymentRequestJson
+    cardNonceResponseReceived: (errors, nonce, cardData) ->
+      if errors
+        # Log errors from nonce generation to the Javascript console
+        errors.forEach (error) ->
+          console.log '  ' + error.message
+        return
+      for name, data of cardData
+        document.getElementById(name).value = data if document.getElementById(name)
+      document.getElementById('card-nonce').value = nonce
+      document.getElementById('nonce-form').submit()
+    unsupportedBrowserDetected: ->
+      return
+    inputEventReceived: (inputEvent) ->
+      return
+    paymentFormLoaded: ->
+      return
+)
+
+document.addEventListener "DOMContentLoaded", (e) ->
+  button = document.getElementById('sq-creditcard')
+  button.addEventListener 'click', (e) ->
+    e.preventDefault()
+    paymentForm.requestCardNonce()

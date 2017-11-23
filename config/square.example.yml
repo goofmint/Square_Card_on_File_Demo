@@ -1,0 +1,4 @@
+development:
+  application_id: 'YOUR_APPLICATION_KEY'
+  access_token: 'YOUR_ACCESS_TOKEN'
+  location_id: 'YOUR_LOCATION_ID'

@@ -40,6 +40,7 @@
     <td><%= card.brand %></td>
     <td><%= card.exp_year %>年<%= card.exp_month %>月</td>
     <td><%= card.last4 %></td>
+    <td><%= link_to "削除", setting_path(card.id), method: :delete %></td>
   </tr>
 <% end %>
 </table>

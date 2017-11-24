@@ -1,24 +1,17 @@
-# README
+# Square Card on Fileデモ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+SquareのEコマースAPIを使ったデモです。Card on File（カード情報の永続化）を使って繰り返し決済処理ができるようにしています。
 
-Things you may want to cover:
+システムは Ruby / Ruby on Railsで作っています。質問がある場合は [Teratail](https://teratail.com/tags/Square) でお願いします（このコードについて、またはSquare API全般について）。
 
-* Ruby version
+## 使い方
 
-* System dependencies
+`config/square.example.yml` を `config/square.yml` にリネームしてサーバを立ち上げてください。情報はSquareの開発者ポータルで取得できます。
 
-* Configuration
+## ライセンス
 
-* Database creation
+MIT License
 
-* Database initialization
+## 参考
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[Build with Square](https://docs.connect.squareup.com/)

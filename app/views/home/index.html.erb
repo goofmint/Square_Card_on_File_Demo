@@ -1,4 +1,4 @@
 <% if user_signed_in? %>
-  <%= link_to "支払い方法追加", settings_path %>
-  
+  <p><%= link_to "支払い方法追加", settings_path %></p>
+  <p><%= link_to "支払いを行う", checkouts_path %></p>
 <% end %>

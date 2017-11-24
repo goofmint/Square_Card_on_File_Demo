@@ -1,0 +1,22 @@
+<h2>支払いを行う</h2>
+<%= form_for checkouts_path, method: 'post' do |f| %>
+  <div class="form-group">
+    <label for="inputCardNumber">カードを選択</label>
+    <%= select :checkout, :card, current_user.cards.map {|card| ["#{card.brand} - 下四桁 #{card.last4}", card.id]}, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <label for="inputCardNumber">支払額</label>
+    <div class="row">
+      <div class="col-md-3">
+        <%= text_field :checkout, :amount, class: 'form-control', value: 1000 %>
+      </div>
+      <div class="col-md-1">
+        円
+      </div>
+    </div>
+  </div>
+  
+  <button class="btn btn-default">
+    支払う
+  </button>
+<% end %>
